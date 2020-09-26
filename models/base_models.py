@@ -41,6 +41,9 @@ class BaseModel(nn.Module):
         h = self.encoder.encode(x, adj)
         return h
 
+    def compute_loss(self, embeddings, data, split):
+        raise NotImplementedError
+
     def compute_metrics(self, embeddings, data, split):
         raise NotImplementedError
 
@@ -73,6 +76,7 @@ class NCModel(BaseModel):
     def decode(self, h, adj, idx):
         output = self.decoder.decode(h, adj)
         return F.log_softmax(output[idx], dim=1)
+
 
     def compute_metrics(self, embeddings, data, split):
         idx = data[f'idx_{split}']
@@ -134,3 +138,52 @@ class LPModel(BaseModel):
     def has_improved(self, m1, m2):
         return 0.5 * (m1['roc'] + m1['ap']) < 0.5 * (m2['roc'] + m2['ap'])
 
+
+class DRModel(BaseModel):
+    """
+    Base model for Manifold Dimension Reductio.
+    """
+
+    def __init__(self, args):
+        super(DRModel, self).__init__(args)
+        self.decoder = model2decoder[args.model](self.c, args)
+        if args.n_classes > 2:
+            self.f1_average = 'micro'
+        else:
+            self.f1_average = 'binary'
+        if args.pos_weight:
+            self.weights = torch.Tensor([1., 1. / data['labels'][idx_train].mean()])
+        else:
+            self.weights = torch.Tensor([1.] * args.n_classes)
+        if not args.cuda == -1:
+            self.weights = self.weights.to(args.device)
+
+    def decode(self, h, adj, idx):
+        output = self.decoder.decode(h, adj)
+        # return F.log_softmax(output[idx], dim=1)
+        return output[idx]
+
+    def compute_rdloss(self, embeddings, data, split):
+        pull_force = 1/ (embeddings.size(0)**2) * torch.trace( torch.mm(embeddings.transpose(0,1), data['adj_dense'].mm(embeddings)) )
+        sample_mask = torch.randint_like(data['adj_dense'],embeddings.size(0)//20)// (embeddings.size(0)//20-1)
+        # print('sample_mask', sample_mask.shape)
+        push_force = 1 / (embeddings.size(0)**2) * torch.trace( torch.mm(embeddings.transpose(0,1), (sample_mask * (1-data['adj_dense'])).mm(embeddings)) )
+        
+        return pull_force, push_force
+
+    def compute_metrics(self, embeddings, data, split):
+        idx = data[f'idx_{split}']
+        output = self.decode(embeddings, data['adj_train_norm'], idx)
+        # loss = F.nll_loss(output, data['labels'][idx], self.weights)
+        pull_loss, push_loss = self.compute_rdloss(embeddings, data, split)
+        # acc, f1 = acc_f1(output, data['labels'][idx], average=self.f1_average)
+        metrics = {'loss': pull_loss + push_loss,'pull_loss': pull_loss, 'push_loss': push_loss}
+        # if split != 'train':
+        #     return metrics
+        return metrics
+
+    def init_metric_dict(self):
+        return {'acc': -1, 'f1': -1}
+
+    def has_improved(self, m1, m2):
+        return m1["f1"] < m2["f1"]

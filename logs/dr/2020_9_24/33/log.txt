@@ -1,0 +1,24 @@
+INFO:root:Using: cuda:0
+INFO:root:Using seed 1234.
+INFO:root:Dimension reduction Num classes: 2
+INFO:root:DRModel(
+  (encoder): GAT(
+    (layers): Sequential(
+      (0): GraphAttentionLayer(
+        (attention_0): SpGraphAttentionLayer (3 -> 25)
+        (attention_1): SpGraphAttentionLayer (3 -> 25)
+        (attention_2): SpGraphAttentionLayer (3 -> 25)
+        (attention_3): SpGraphAttentionLayer (3 -> 25)
+      )
+    )
+  )
+  (decoder): GATDecoder(
+    (cls): GraphAttentionLayer(
+      (attention_0): SpGraphAttentionLayer (100 -> 2)
+    )
+  )
+)
+INFO:root:Total number of parameters: 705
+INFO:root:Epoch: 0100 lr: 0.001 train_loss: -127.4485 train_pull_loss: 34.2344 train_push_loss: -161.6829 time: 0.0187s
+INFO:root:Epoch: 0200 lr: 0.001 train_loss: -246.2841 train_pull_loss: 59.4037 train_push_loss: -305.6878 time: 0.0186s
+INFO:root:Epoch: 0300 lr: 0.001 train_loss: -418.7188 train_pull_loss: 98.7395 train_push_loss: -517.4583 time: 0.0186s

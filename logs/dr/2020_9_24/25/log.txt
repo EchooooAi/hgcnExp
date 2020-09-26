@@ -1,0 +1,65 @@
+INFO:root:Using: cuda:0
+INFO:root:Using seed 1234.
+INFO:root:Dimension reduction Num classes: 2
+INFO:root:DRModel(
+  (encoder): GCN(
+    (layers): Sequential(
+      (0): GraphConvolution(
+        input_dim=3, output_dim=500
+        (linear): Linear(in_features=3, out_features=500, bias=False)
+      )
+    )
+  )
+  (decoder): GCNDecoder(
+    (cls): GraphConvolution(
+      input_dim=500, output_dim=2
+      (linear): Linear(in_features=500, out_features=2, bias=False)
+    )
+  )
+)
+INFO:root:Total number of parameters: 2501
+INFO:root:Epoch: 0100 lr: 0.1 train_loss: -6162.9731 train_pull_loss: 5876.9995 train_push_loss: -12039.9727 time: 0.0060s
+INFO:root:Epoch: 0200 lr: 0.1 train_loss: -39308.0703 train_pull_loss: 37328.6250 train_push_loss: -76636.6953 time: 0.0056s
+INFO:root:Epoch: 0300 lr: 0.1 train_loss: -85305.6250 train_pull_loss: 90654.9062 train_push_loss: -175960.5312 time: 0.0053s
+INFO:root:Epoch: 0400 lr: 0.1 train_loss: -177398.9531 train_pull_loss: 173462.2344 train_push_loss: -350861.1875 time: 0.0049s
+INFO:root:Epoch: 0500 lr: 0.1 train_loss: -282391.0312 train_pull_loss: 301685.7812 train_push_loss: -584076.8125 time: 0.0045s
+INFO:root:Epoch: 0600 lr: 0.1 train_loss: -381639.9688 train_pull_loss: 461115.8438 train_push_loss: -842755.8125 time: 0.0048s
+INFO:root:Epoch: 0700 lr: 0.1 train_loss: -579268.2500 train_pull_loss: 686254.3750 train_push_loss: -1265522.6250 time: 0.0060s
+INFO:root:Epoch: 0800 lr: 0.1 train_loss: -624045.2500 train_pull_loss: 888796.1250 train_push_loss: -1512841.3750 time: 0.0062s
+INFO:root:Epoch: 0900 lr: 0.1 train_loss: -861804.3750 train_pull_loss: 1140408.6250 train_push_loss: -2002213.0000 time: 0.0067s
+INFO:root:Epoch: 1000 lr: 0.1 train_loss: -859911.1250 train_pull_loss: 1449876.3750 train_push_loss: -2309787.5000 time: 0.0060s
+INFO:root:Epoch: 1100 lr: 0.1 train_loss: -1408057.1250 train_pull_loss: 1772175.1250 train_push_loss: -3180232.2500 time: 0.0060s
+INFO:root:Epoch: 1200 lr: 0.1 train_loss: -1470128.5000 train_pull_loss: 2164272.2500 train_push_loss: -3634400.7500 time: 0.0060s
+INFO:root:Epoch: 1300 lr: 0.1 train_loss: -1690955.5000 train_pull_loss: 2624101.5000 train_push_loss: -4315057.0000 time: 0.0060s
+INFO:root:Epoch: 1400 lr: 0.1 train_loss: -2402491.2500 train_pull_loss: 3116851.2500 train_push_loss: -5519342.5000 time: 0.0060s
+INFO:root:Epoch: 1500 lr: 0.1 train_loss: -2178582.5000 train_pull_loss: 3449505.0000 train_push_loss: -5628087.5000 time: 0.0060s
+INFO:root:Epoch: 1600 lr: 0.1 train_loss: -1952493.5000 train_pull_loss: 3924220.5000 train_push_loss: -5876714.0000 time: 0.0060s
+INFO:root:Epoch: 1700 lr: 0.1 train_loss: -3051289.0000 train_pull_loss: 4588655.5000 train_push_loss: -7639944.5000 time: 0.0060s
+INFO:root:Epoch: 1800 lr: 0.1 train_loss: -3501430.0000 train_pull_loss: 5151017.0000 train_push_loss: -8652447.0000 time: 0.0060s
+INFO:root:Epoch: 1900 lr: 0.1 train_loss: -3391212.0000 train_pull_loss: 5746763.0000 train_push_loss: -9137975.0000 time: 0.0060s
+INFO:root:Epoch: 2000 lr: 0.1 train_loss: -4085424.0000 train_pull_loss: 6536466.0000 train_push_loss: -10621890.0000 time: 0.0060s
+INFO:root:Epoch: 2100 lr: 0.1 train_loss: -3656632.0000 train_pull_loss: 7034386.0000 train_push_loss: -10691018.0000 time: 0.0060s
+INFO:root:Epoch: 2200 lr: 0.1 train_loss: -4540993.0000 train_pull_loss: 8071517.0000 train_push_loss: -12612510.0000 time: 0.0060s
+INFO:root:Epoch: 2300 lr: 0.1 train_loss: -3990017.0000 train_pull_loss: 8626739.0000 train_push_loss: -12616756.0000 time: 0.0060s
+INFO:root:Epoch: 2400 lr: 0.1 train_loss: -4211307.0000 train_pull_loss: 9173547.0000 train_push_loss: -13384854.0000 time: 0.0060s
+INFO:root:Epoch: 2500 lr: 0.1 train_loss: -6085142.0000 train_pull_loss: 9559277.0000 train_push_loss: -15644419.0000 time: 0.0060s
+INFO:root:Epoch: 2600 lr: 0.1 train_loss: -3919552.0000 train_pull_loss: 10856598.0000 train_push_loss: -14776150.0000 time: 0.0060s
+INFO:root:Epoch: 2700 lr: 0.1 train_loss: -5613158.0000 train_pull_loss: 11544590.0000 train_push_loss: -17157748.0000 time: 0.0060s
+INFO:root:Epoch: 2800 lr: 0.1 train_loss: -6888637.0000 train_pull_loss: 12189775.0000 train_push_loss: -19078412.0000 time: 0.0060s
+INFO:root:Epoch: 2900 lr: 0.1 train_loss: -11468173.0000 train_pull_loss: 13196913.0000 train_push_loss: -24665086.0000 time: 0.0059s
+INFO:root:Epoch: 3000 lr: 0.1 train_loss: -8713650.0000 train_pull_loss: 13687196.0000 train_push_loss: -22400846.0000 time: 0.0060s
+INFO:root:Epoch: 3100 lr: 0.1 train_loss: -9274808.0000 train_pull_loss: 15334986.0000 train_push_loss: -24609794.0000 time: 0.0060s
+INFO:root:Epoch: 3200 lr: 0.1 train_loss: -10626787.0000 train_pull_loss: 16010261.0000 train_push_loss: -26637048.0000 time: 0.0059s
+INFO:root:Epoch: 3300 lr: 0.1 train_loss: -10875592.0000 train_pull_loss: 17005126.0000 train_push_loss: -27880718.0000 time: 0.0060s
+INFO:root:Epoch: 3400 lr: 0.1 train_loss: -8139354.0000 train_pull_loss: 17791670.0000 train_push_loss: -25931024.0000 time: 0.0058s
+INFO:root:Epoch: 3500 lr: 0.1 train_loss: -8595280.0000 train_pull_loss: 18646734.0000 train_push_loss: -27242014.0000 time: 0.0057s
+INFO:root:Epoch: 3600 lr: 0.1 train_loss: -9685832.0000 train_pull_loss: 19384582.0000 train_push_loss: -29070414.0000 time: 0.0056s
+INFO:root:Epoch: 3700 lr: 0.1 train_loss: -8000104.0000 train_pull_loss: 20552276.0000 train_push_loss: -28552380.0000 time: 0.0058s
+INFO:root:Epoch: 3800 lr: 0.1 train_loss: -11472272.0000 train_pull_loss: 21039336.0000 train_push_loss: -32511608.0000 time: 0.0058s
+INFO:root:Epoch: 3900 lr: 0.1 train_loss: -10499718.0000 train_pull_loss: 22349778.0000 train_push_loss: -32849496.0000 time: 0.0059s
+INFO:root:Epoch: 4000 lr: 0.1 train_loss: -14194712.0000 train_pull_loss: 23454680.0000 train_push_loss: -37649392.0000 time: 0.0060s
+INFO:root:Epoch: 4100 lr: 0.1 train_loss: -12673664.0000 train_pull_loss: 24322284.0000 train_push_loss: -36995948.0000 time: 0.0060s
+INFO:root:Epoch: 4200 lr: 0.1 train_loss: -13253500.0000 train_pull_loss: 25685056.0000 train_push_loss: -38938556.0000 time: 0.0058s
+INFO:root:Epoch: 4300 lr: 0.1 train_loss: -15420570.0000 train_pull_loss: 26665122.0000 train_push_loss: -42085692.0000 time: 0.0058s
+INFO:root:Epoch: 4400 lr: 0.1 train_loss: -10907918.0000 train_pull_loss: 27788714.0000 train_push_loss: -38696632.0000 time: 0.0058s
+INFO:root:Epoch: 4500 lr: 0.1 train_loss: -14883288.0000 train_pull_loss: 28838668.0000 train_push_loss: -43721956.0000 time: 0.0058s
